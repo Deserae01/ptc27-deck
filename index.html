@@ -4,224 +4,168 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>An Evening on the Deck · Sonepar at PTC'27</title>
-<meta name="description" content="A private evening for fifty on the rooftop at DECK., Honolulu. Tuesday, January 19, 2027.">
+<meta name="description" content="A private, invite-only evening on the rooftop at DECK., Honolulu. Tuesday, January 19, 2027.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,400;1,500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ------------------------------------------------------------
-   BRAND TOKENS — pulled from the official PTC'27 e-vite banner
-   (Sonepar indigo, gold, sky blue) + a dusk violet to bridge
-   the brand colors into the sunset photography.
-   ------------------------------------------------------------ */
+/* BRAND TOKENS: official Sonepar logo colors + the gold from the PTC'27 banner */
 :root{
   --indigo:#27348B;      /* Sonepar blue (official logo) */
-  --indigo-deep:#141747; /* night sky */
-  --night:#0B0D2A;       /* page background */
-  --violet:#5A3E9E;      /* dusk */
-  --gold:#F7C21B;        /* Sonepar banner yellow */
+  --indigo-deep:#141747;
+  --night:#0B0D2A;
+  --violet:#5A3E9E;
+  --gold:#F7C21B;
   --gold-soft:#FFD970;
   --sky:#009EE3;         /* Sonepar sky blue (official logo) */
-  --ink:#F4F1EA;         /* warm white text */
-  --ink-dim:rgba(244,241,234,.72);
-  --ink-faint:rgba(244,241,234,.45);
-  --line:rgba(244,241,234,.14);
+  --ink:#F4F1EA;
+  --ink-dim:rgba(244,241,234,.78);
+  --ink-faint:rgba(244,241,234,.5);
+  --line:rgba(244,241,234,.16);
   --serif:'Cormorant Garamond',Georgia,serif;
   --sans:'Manrope',system-ui,-apple-system,Segoe UI,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--night);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--night);color:var(--ink);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.logo{display:block;height:auto}
 
-/* ---------------- HERO ---------------- */
-.hero{position:relative;height:100svh;min-height:620px;overflow:hidden;isolation:isolate}
+/* ============ PANEL 1: INVITE + EXPERIENCES ============ */
+.hero{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;isolation:isolate;padding:28px 0 56px;display:flex;flex-direction:column}
 .hero__media{position:absolute;inset:0;z-index:-2}
-.hero__media video,.hero__media .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-/* "Dusk grade": pushes daytime drone footage toward the evening palette */
-.hero__media video{filter:saturate(1.15) contrast(1.05) brightness(.8) hue-rotate(-8deg)}
-.slide{opacity:0;background-size:cover;background-position:center;animation:kb 18s ease-in-out infinite}
-.slide:nth-child(1){animation-delay:0s}
+.slide{position:absolute;inset:0;opacity:0;background-size:cover;background-position:center;animation:kb 18s ease-in-out infinite}
 .slide:nth-child(2){animation-delay:6s}
 .slide:nth-child(3){animation-delay:12s}
-@keyframes kb{
-  0%{opacity:0;transform:scale(1.12)}
-  6%{opacity:1}
-  33%{opacity:1}
-  40%{opacity:0;transform:scale(1)}
-  100%{opacity:0}
-}
+@keyframes kb{0%{opacity:0;transform:scale(1.12)}6%{opacity:1}33%{opacity:1}40%{opacity:0;transform:scale(1)}100%{opacity:0}}
 .hero__grade{position:absolute;inset:0;z-index:-1;
   background:
-    linear-gradient(180deg,rgba(20,23,71,.70) 0%,rgba(20,23,71,.10) 32%,rgba(20,23,71,0) 50%,rgba(11,13,42,.85) 88%,var(--night) 100%),
-    linear-gradient(115deg,rgba(39,52,139,.55) 0%,rgba(90,62,158,.25) 45%,rgba(247,194,27,.18) 100%);
-}
-.hero__top{position:absolute;top:28px;left:0;right:0;display:flex;justify-content:space-between;align-items:center}
-.logo{display:block;height:auto}
-.tag{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
-.hero__body{position:absolute;left:0;right:0;bottom:clamp(56px,10vh,110px)}
-.eyebrow{font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:14px}
-.eyebrow::before{content:"";width:36px;height:1px;background:var(--gold)}
-.greet{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.6vw,30px);color:var(--ink);margin-bottom:6px}
-h1{font-weight:600;letter-spacing:-.035em;line-height:.98;font-size:clamp(46px,8.4vw,118px);max-width:14ch}
+    linear-gradient(180deg,rgba(11,13,42,.82) 0%,rgba(20,23,71,.55) 30%,rgba(20,23,71,.55) 60%,rgba(11,13,42,.96) 100%),
+    linear-gradient(115deg,rgba(39,52,139,.55) 0%,rgba(90,62,158,.25) 50%,rgba(247,194,27,.14) 100%)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.tag{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
+.hero__body{margin-top:clamp(22px,5vh,72px)}
+.eyebrow{font-size:clamp(13px,1.3vw,16px);letter-spacing:.3em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::before{content:"";width:40px;height:1px;background:var(--gold)}
+.greet{font-family:var(--serif);font-style:italic;font-size:clamp(24px,2.6vw,32px)}
+h1{font-weight:600;letter-spacing:-.035em;line-height:1;font-size:clamp(44px,6.8vw,96px)}
 h1 em{font-family:var(--serif);font-weight:500;font-style:italic;letter-spacing:-.01em;color:var(--gold)}
-.hero__sub{margin-top:22px;font-size:clamp(16px,1.6vw,20px);color:var(--ink-dim);font-weight:300;max-width:46ch}
-.hero__meta{margin-top:34px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
-.meta{font-size:14px;letter-spacing:.04em;color:var(--ink)}
-.meta b{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:2px}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 28px;border-radius:999px;background:var(--gold);color:var(--indigo-deep);font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;box-shadow:0 10px 40px -10px rgba(247,194,27,.6)}
+.lede{margin-top:18px;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;font-size:clamp(16px,1.5vw,19px);color:var(--ink-dim)}
+.pill{display:inline-block;padding:7px 14px;border:1px solid rgba(247,194,27,.6);border-radius:999px;color:var(--gold);font-size:12px;font-weight:700;letter-spacing:.22em;text-transform:uppercase}
+.meta-row{margin-top:26px;display:flex;flex-wrap:wrap;gap:16px 34px;align-items:center}
+.meta{font-size:16px}
+.meta b{display:block;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:2px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:17px 30px;border-radius:999px;background:var(--gold);color:var(--indigo-deep);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;font-family:inherit;transition:transform .25s,background .25s;box-shadow:0 10px 40px -10px rgba(247,194,27,.6)}
 .btn:hover{transform:translateY(-2px);background:var(--gold-soft)}
 .btn--ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
-.btn--ghost:hover{background:rgba(244,241,234,.06)}
-.scrollcue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);width:1px;height:44px;background:linear-gradient(var(--ink-faint),transparent);animation:cue 2.4s ease-in-out infinite}
-@keyframes cue{0%,100%{opacity:.2}50%{opacity:1}}
+.btn--ghost:hover{background:rgba(244,241,234,.08)}
 
-/* ---------------- SECTIONS ---------------- */
-section{padding:clamp(80px,12vw,150px) 0}
-.kicker{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--sky);font-weight:600;margin-bottom:18px}
-h2{font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(34px,5vw,64px)}
-h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold)}
-
-/* The note */
-.note{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,6vw,90px);align-items:center}
-.note__text p{font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);line-height:1.38;color:var(--ink)}
-.note__text p+p{margin-top:22px}
-.sign{margin-top:34px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim)}
-.sign strong{color:var(--ink);font-weight:600}
-.note__img{position:relative;aspect-ratio:4/5;border-radius:4px;overflow:hidden}
-.note__img img{width:100%;height:100%;object-fit:cover}
-.note__img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(11,13,42,.5))}
-.stat{position:absolute;left:-1px;bottom:28px;background:var(--gold);color:var(--indigo-deep);padding:18px 22px;z-index:1}
-.stat span{display:block;font-weight:700;font-size:44px;line-height:1;letter-spacing:-.04em}
-.stat small{font-size:10px;letter-spacing:.26em;text-transform:uppercase;font-weight:700}
-
-/* Full-bleed photo break */
-.bleed{position:relative;height:min(86vh,820px);overflow:hidden}
-.bleed img{width:100%;height:115%;object-fit:cover;will-change:transform}
-.bleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--night) 0%,transparent 18%,transparent 70%,var(--night) 100%)}
-.bleed__cap{position:absolute;left:0;right:0;bottom:12%;z-index:1;text-align:center}
-.bleed__cap p{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4.4vw,56px);line-height:1.1;text-shadow:0 2px 30px rgba(0,0,0,.6)}
-
-/* The evening */
-.evening__head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:56px}
-.evening__head p{max-width:40ch;color:var(--ink-dim)}
-.moments{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--line)}
-.moment{padding:30px 22px 34px 0;border-right:1px solid var(--line)}
-.moment+.moment{padding-left:22px}
-.moment:last-child{border-right:0}
-.moment__n{font-family:var(--serif);font-style:italic;color:var(--gold);font-size:22px}
-.moment h3{font-weight:600;font-size:19px;letter-spacing:-.01em;margin:16px 0 8px;line-height:1.25}
-.moment p{font-size:14px;color:var(--ink-dim)}
-
-/* Experience reels */
-.reels{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.reel{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:3/4.4;background:var(--indigo-deep)}
-.reel__media{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
-.reel:hover .reel__media{transform:scale(1.12)}
+/* Experience cards */
+.reels{margin-top:clamp(24px,4vh,48px);display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:16px;align-items:end}
+.reel{position:relative;border-radius:6px;overflow:hidden;height:clamp(250px,35vh,410px);background:var(--indigo-deep);--tint-a:rgba(247,194,27,.22)}
+.reel--feature{height:clamp(290px,41vh,470px);box-shadow:0 0 0 1px rgba(247,194,27,.75),0 30px 80px -20px rgba(247,194,27,.35)}
+.reel__media{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.05);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.reel:hover .reel__media{transform:scale(1.11)}
 .reel__media video{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
-.reel{cursor:default}
-.reel__hint{position:absolute;top:18px;right:18px;z-index:1;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);background:rgba(11,13,42,.45);backdrop-filter:blur(6px);padding:7px 11px;border-radius:999px;transition:opacity .4s}
+.reel__media video.on{opacity:1}
+.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,42,.35) 0%,rgba(11,13,42,0) 30%,rgba(11,13,42,.15) 55%,rgba(11,13,42,.92) 100%),linear-gradient(0deg,var(--tint-a),transparent 55%);pointer-events:none}
+.reel__body{position:absolute;left:0;right:0;bottom:0;padding:24px;z-index:1}
+.reel__n{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--gold)}
+.reel h3{font-weight:600;font-size:clamp(20px,1.7vw,24px);letter-spacing:-.015em;line-height:1.2}
+.reel--feature h3{font-size:clamp(23px,2.1vw,30px)}
+.reel__mj{position:absolute;top:22px;left:50%;transform:translateX(-50%);z-index:1;width:clamp(120px,11vw,160px);filter:drop-shadow(0 2px 14px rgba(0,0,0,.55))}
+.reel__mj svg{width:100%;height:auto;display:block}
+.reel__hint{position:absolute;top:16px;right:16px;z-index:1;font-size:10px;letter-spacing:.22em;text-transform:uppercase;background:rgba(11,13,42,.55);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:6px 10px;border-radius:999px;transition:opacity .4s}
+.reel--feature .reel__hint{top:auto;bottom:24px;right:24px}
 .reel:hover .reel__hint{opacity:0}
 @media (hover:none){.reel__hint{display:none}}
-.reel__media video.on{opacity:1}
-.reel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,42,.05) 30%,rgba(11,13,42,.92) 100%),linear-gradient(0deg,color-mix(in srgb,var(--tint) 22%,transparent),transparent 60%)}
-.reel__body{position:absolute;left:0;right:0;bottom:0;padding:26px;z-index:1}
-.reel__body h3{font-weight:600;font-size:22px;letter-spacing:-.015em;margin:10px 0 8px;line-height:1.2}
-.reel__body p{font-size:14px;color:var(--ink-dim);max-width:30ch}
-.reel .moment__n{color:var(--tint)}
-.extras{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:40px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink-dim);flex-wrap:wrap;text-align:center}
+.extras{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:26px;font-family:var(--serif);font-style:italic;font-size:clamp(19px,1.8vw,23px);color:var(--ink-dim);flex-wrap:wrap;text-align:center}
 .extras i{width:6px;height:6px;border-radius:50%;background:var(--gold)}
 
-/* The place */
-.gallery{display:grid;grid-template-columns:1.35fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:56px}
-.gallery figure{position:relative;overflow:hidden;border-radius:4px}
+/* ============ PANEL 2: THE PLACE ============ */
+section{padding:clamp(70px,10vw,120px) 0}
+.kicker{font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--sky);font-weight:700;margin-bottom:16px}
+h2{font-weight:600;letter-spacing:-.03em;line-height:1.05;font-size:clamp(34px,4.6vw,60px)}
+h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gold)}
+.gallery{display:grid;grid-template-columns:1.35fr 1fr;gap:14px;margin-top:44px}
+.gallery figure{position:relative;overflow:hidden;border-radius:6px}
 .gallery img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
 .gallery figure:hover img{transform:scale(1.04)}
-.g1{grid-row:span 2;aspect-ratio:auto;min-height:520px}
+.g1{grid-row:span 2;min-height:520px}
 .g2,.g3{aspect-ratio:3/2}
-.gallery figcaption{position:absolute;left:16px;bottom:14px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);text-shadow:0 1px 12px rgba(0,0,0,.7)}
-.place__facts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:56px}
-.fact b{display:block;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);font-weight:600;margin-bottom:8px}
-.fact span{font-size:17px}
+.gallery figcaption{position:absolute;left:18px;bottom:16px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;text-shadow:0 1px 12px rgba(0,0,0,.8)}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:44px}
+.fact b{display:block;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:8px}
+.fact span{font-size:clamp(18px,1.6vw,21px);line-height:1.45}
 
-/* Details + RSVP */
-.rsvp{background:
-  radial-gradient(1200px 500px at 85% 0%,rgba(90,62,158,.35),transparent 60%),
-  radial-gradient(900px 500px at 0% 100%,rgba(39,52,139,.5),transparent 60%),
-  var(--indigo-deep)}
+/* ============ PANEL 3: RSVP ============ */
+.rsvp{background:radial-gradient(1200px 500px at 85% 0%,rgba(90,62,158,.35),transparent 60%),radial-gradient(900px 500px at 0% 100%,rgba(39,52,139,.5),transparent 60%),var(--indigo-deep)}
 .rsvp__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(40px,7vw,100px)}
-.details{margin-top:40px;display:grid;gap:26px}
-.details .fact span{font-size:18px;line-height:1.45}
-.details__actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
-form{display:grid;grid-template-columns:1fr 1fr;gap:18px 18px}
-.field{display:flex;flex-direction:column;gap:8px}
+.details{margin-top:36px;display:grid;gap:28px}
+.details__actions{display:flex;flex-wrap:wrap;gap:12px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:9px}
 .field--full{grid-column:1/-1}
-label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim);font-weight:600}
-input,select,textarea{font:inherit;color:var(--ink);background:rgba(244,241,234,.04);border:1px solid var(--line);border-radius:3px;padding:14px 16px;font-size:16px;transition:border-color .2s,background .2s}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(244,241,234,.07)}
-textarea{resize:vertical;min-height:90px}
-select option{color:#111}
+label{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-dim);font-weight:700}
+input,textarea{font:inherit;color:var(--ink);background:rgba(244,241,234,.05);border:1px solid var(--line);border-radius:4px;padding:16px 18px;font-size:17px;transition:border-color .2s,background .2s}
+input:focus,textarea:focus{outline:none;border-color:var(--gold);background:rgba(244,241,234,.08)}
+textarea{resize:vertical;min-height:96px}
 .choice{display:flex;gap:10px}
 .choice input{position:absolute;opacity:0;pointer-events:none}
-.choice label{flex:1;text-align:center;padding:15px;border:1px solid var(--line);border-radius:3px;cursor:pointer;font-size:12px;color:var(--ink);transition:all .2s}
+.choice label{flex:1;text-align:center;padding:17px;border:1px solid var(--line);border-radius:4px;cursor:pointer;font-size:14px;color:var(--ink);transition:all .2s}
 .choice input:checked+label{background:var(--gold);color:var(--indigo-deep);border-color:var(--gold)}
-.form__foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:6px}
-.form__foot small{color:var(--ink-faint);font-size:12px;max-width:34ch}
-.thanks{display:none;text-align:left}
+.form__foot{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:4px}
+.form__foot small{color:var(--ink-faint);font-size:14px}
+.thanks{display:none}
 .thanks.show{display:block}
-.thanks h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:44px;color:var(--gold);line-height:1.1}
-.thanks p{margin-top:14px;color:var(--ink-dim);max-width:44ch}
-
-footer{padding:50px 0 60px;border-top:1px solid var(--line)}
+.thanks h3{font-family:var(--serif);font-style:italic;font-weight:500;font-size:46px;color:var(--gold);line-height:1.1}
+.thanks p{margin-top:14px;color:var(--ink-dim);font-size:18px;max-width:44ch}
+footer{padding:44px 0 56px;border-top:1px solid var(--line)}
 .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-.foot small{color:var(--ink-faint);font-size:11px;letter-spacing:.04em}
+.foot small{color:var(--ink-faint);font-size:12px}
 
-/* reveal on scroll */
-.rv{opacity:0;transform:translateY(28px);transition:opacity 1.1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
 .rv.in{opacity:1;transform:none}
 
 @media (max-width:900px){
-  .note,.rsvp__grid{grid-template-columns:1fr}
-  .reels{grid-template-columns:1fr}
-  .reel{aspect-ratio:4/5}
+  .rsvp__grid{grid-template-columns:1fr}
   .gallery{grid-template-columns:1fr}
-  .g1{min-height:380px;grid-row:auto}
-  .place__facts{grid-template-columns:1fr}
+  .g1{min-height:340px;grid-row:auto}
+  .facts{grid-template-columns:1fr;gap:20px}
+  /* Phones: cards become a swipe row, Maui Jim first */
+  .reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-right:-20px;padding-right:20px;padding-bottom:6px;-webkit-overflow-scrolling:touch;align-items:stretch}
+  .reel{flex:0 0 78%;height:400px;scroll-snap-align:start}
+  .reel--feature{order:-1;height:400px}
 }
 @media (max-width:560px){
+  .top .tag{display:none}
+  .extras i{display:none}
+  .extras{flex-direction:column;gap:6px}
   form{grid-template-columns:1fr}
-  .hero__top .tag{display:none}
-  .btn{width:100%;justify-content:center}
+  .hero__body .btn{width:100%;justify-content:center}
 }
 @media (prefers-reduced-motion:reduce){
-  .slide{animation:none;opacity:0}.slide:first-child{opacity:1}
+  .slide{animation:none}.slide:first-child{opacity:1}
   .rv{opacity:1;transform:none;transition:none}
-  html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sonepar-logo" viewBox="0 0 254.681 40.012"><path fill="#009EE3" transform="translate(-236.59 -236.969)" d="M288.07,255.511a5.86,5.86,0,0,0-.2-.571,6.732,6.732,0,0,0-.577-1.111,8.266,8.266,0,0,0-.588-.8,10.44,10.44,0,0,0-.98-1.03q-.408-.376-.875-.738t-.99-.7l-.211-.136a.487.487,0,0,0-.716.234,28.053,28.053,0,0,1-2.739,5.51,1.439,1.439,0,0,0-.243.81h0c0,3.253-2.967,6.127-7.5,7.858a23.777,23.777,0,0,1-2.41.772h0a28.2,28.2,0,0,1-3.736.712h0q-1.1.136-2.253.194-.8.04-1.612.04a26.915,26.915,0,0,1-11.82-2.509.4.4,0,0,0-.572.365,10.552,10.552,0,0,0,.088,1.132,2.278,2.278,0,0,0,1.819,1.937,53.472,53.472,0,0,0,8.734.959q.869.026,1.752.027h.722q2.021-.024,3.955-.184h0q1.02-.083,2.012-.2c11.028-1.31,19.152-5.781,19.152-11.1a5.3,5.3,0,0,0-.212-1.463Z"/><path fill="#009EE3" transform="translate(-166.19 -211.576)" d="M174.186,232.823a2.455,2.455,0,0,0,.329-1.237v-.006q0-.243.023-.487t.068-.487a5.732,5.732,0,0,1,.358-1.183q.1-.231.217-.459.058-.113.122-.226.128-.225.275-.446.074-.11.152-.219a9.035,9.035,0,0,1,1.105-1.255q.106-.1.215-.2a12.829,12.829,0,0,1,1.736-1.3q.138-.086.279-.172.282-.17.581-.332a19.276,19.276,0,0,1,2.371-1.086,23.762,23.762,0,0,1,2.41-.772h0a28.194,28.194,0,0,1,3.736-.712h0q1.1-.135,2.253-.194.8-.04,1.612-.04a27.176,27.176,0,0,1,11.543,2.373.426.426,0,0,0,.609-.381,8.49,8.49,0,0,0-.226-2.07.943.943,0,0,0-.718-.7h0a52.944,52.944,0,0,0-9.452-1.105q-.869-.026-1.753-.027h-.722c-1.346.017-2.667.079-3.955.184h0q-1.02.083-2.012.2c-1.568.186-3.078.436-4.513.743q-.565.122-1.114.253-.824.2-1.611.424-.525.15-1.031.309-1.266.4-2.417.864-.459.185-.9.38-.657.292-1.267.609-.407.208-.79.425-.192.108-.377.219-.372.222-.721.45-.522.343-.99.7t-.875.738a10.452,10.452,0,0,0-.98,1.03,8.287,8.287,0,0,0-.588.8,6.733,6.733,0,0,0-.577,1.111,5.862,5.862,0,0,0-.2.571,5.3,5.3,0,0,0-.208,1.461c0,2.557,1.88,4.918,5.059,6.827a.349.349,0,0,0,.508-.178,39.688,39.688,0,0,1,2.429-5.405Z"/><path fill="#009EE3" transform="translate(-288.923 -167.006)" d="M318,173.694l.114-.04c.19-.063.377-.122.565-.178l.158-.046q.228-.066.453-.122l.135-.035q.276-.068.549-.122l.138-.027q.222-.044.441-.079l.14-.023q.269-.04.532-.069l.106-.01q.222-.022.439-.035l.138-.007c.167-.007.331-.013.494-.013h.069c.158,0,.313.006.467.016h.1q.244.016.48.045l.086.012q.22.029.435.071l.055.01c.153.03.3.067.45.106l.091.026q.223.062.438.139h.015c.139.05.273.106.405.164l.082.036a4.016,4.016,0,0,1,.388.2l.063.037q.173.1.336.209l.055.037a4.286,4.286,0,0,1,.342.259l.073.061c.112.095.222.192.325.3a5.418,5.418,0,0,1,.974,1.339,6.3,6.3,0,0,1,.514,1.357,8.7,8.7,0,0,1,.233,2.609,11.957,11.957,0,0,1-.122,1.208.612.612,0,0,1-.016.09h0c-.062.383-.141.773-.243,1.169-.009.034-.019.069-.028.1a22.624,22.624,0,0,1-3.544,7.3q-.487.681-1.02,1.354-.269.336-.55.67-.846,1-1.809,1.965h0a.166.166,0,0,0,.157.278c.508-.129,1.152-.3,1.826-.493a4.315,4.315,0,0,0,2.057-1.307l.008-.01q.212-.243.419-.487,1.243-1.461,2.326-2.922.365-.487.7-.974.923-1.315,1.7-2.614.365-.609.7-1.2h0q.413-.739.777-1.461.47-.937.852-1.849.194-.455.365-.9.086-.224.167-.446c.026-.069.049-.138.073-.206.08-.225.157-.45.229-.672q.073-.228.14-.453.122-.419.23-.828.161-.629.269-1.233.073-.4.122-.793t.077-.767q.027-.376.03-.74t-.017-.711q-.01-.174-.027-.345-.033-.341-.09-.665a5.917,5.917,0,0,0-1.594-3.237q-.107-.108-.22-.208l-.078-.066c-.051-.044-.1-.088-.153-.129-.032-.026-.065-.049-.1-.073s-.1-.073-.146-.108-.072-.047-.107-.072-.1-.064-.146-.1l-.116-.068c-.049-.029-.1-.058-.149-.085l-.122-.063c-.05-.026-.1-.052-.152-.077l-.129-.058-.156-.068-.134-.054-.16-.061-.139-.047-.164-.052-.144-.041-.168-.045-.149-.037-.173-.038-.152-.03-.178-.032-.157-.024-.183-.024-.161-.018-.187-.017-.164-.013-.192-.01-.167-.007h-.357q-.234,0-.475.011h-.1q-.2.011-.413.029l-.122.01q-.243.023-.5.056l-.095.013q-.218.03-.439.067l-.128.022c-.174.03-.348.063-.526.1l-.082.018q-.234.05-.47.107l-.139.034c-.181.045-.365.092-.549.144l-.061.017q-.252.071-.508.15l-.146.045q-.283.089-.57.188l-.029.01c-.184.063-.365.13-.554.2l-.152.057q-.285.108-.572.223l-.018.007c-.2.079-.4.163-.594.243l-.156.068-.551.243-.057.026c-.2.093-.4.19-.609.289l-.156.077q-.269.133-.539.271l-.088.045q-.306.158-.609.326l-.156.085q-.265.146-.533.3l-.107.061q-.311.178-.622.365l-.151.091q-.265.159-.531.325l-.122.078q-.313.2-.628.4l-.145.095q-.265.174-.531.353l-.139.094q-.315.214-.632.437l-.134.1q-.267.189-.533.383l-.15.108q-.317.233-.633.472l-.016.012c1.917-.016,4.4-.065,5.365-.085Z"/><path fill="#009EE3" transform="translate(-196.759 -235.244)" d="M220.212,268.422a2.633,2.633,0,0,0-.852.142h0l-.1.034c-.192.065-.383.122-.575.18l-.146.043q-.236.068-.471.122l-.122.032q-.281.069-.558.122l-.122.024q-.229.045-.454.082l-.133.022c-.181.028-.365.051-.537.071l-.1.008q-.225.022-.447.035l-.134.007c-.167.008-.332.013-.5.013H214.9c-.157,0-.313-.006-.466-.016h-.1q-.243-.016-.477-.045l-.089-.012q-.218-.029-.43-.069l-.058-.011c-.152-.03-.3-.066-.448-.106l-.095-.027c-.147-.041-.293-.086-.435-.138l-.018-.007c-.138-.05-.27-.1-.4-.163l-.083-.038a4.275,4.275,0,0,1-.387-.2l-.064-.038q-.172-.1-.335-.208l-.056-.038c-.122-.082-.231-.168-.342-.258l-.073-.061c-.112-.095-.222-.192-.326-.3a5.428,5.428,0,0,1-.974-1.339,6.289,6.289,0,0,1-.514-1.357c-.033-.122-.064-.253-.09-.385a8.216,8.216,0,0,1-.138-1.077,9.888,9.888,0,0,1,0-1.148,11.966,11.966,0,0,1,.122-1.208.607.607,0,0,1,.016-.09c.062-.383.141-.773.243-1.169.009-.034.019-.069.028-.1.1-.394.217-.792.353-1.2a20.172,20.172,0,0,1,.8-2.006q.312-.677.682-1.361t.8-1.368q.427-.684.911-1.366t1.02-1.354a31.822,31.822,0,0,1,2.359-2.634h0a.111.111,0,0,0-.1-.185c-.3.074-.623.157-.958.244A7.631,7.631,0,0,0,210.937,251a49.268,49.268,0,0,0-4.3,5.994q-.365.609-.7,1.2l-.027.047q-.265.476-.51.948t-.47.937q-.225.466-.429.925t-.387.911q-.183.452-.345.9c-.026.069-.049.138-.073.206q-.2.57-.365,1.126a18.573,18.573,0,0,0-.566,2.46q-.062.4-.1.78t-.054.754q-.007.185-.008.365t0,.365q.009.355.041.7a8.277,8.277,0,0,0,.153.985,6.393,6.393,0,0,0,.643,1.736,5.4,5.4,0,0,0,.493.739,5.224,5.224,0,0,0,.394.442h0q.106.1.215.2l.079.067a1.946,1.946,0,0,0,.152.122c.032.026.065.049.1.073s.1.073.146.108l.107.072c.049.032.1.065.146.095l.122.068c.049.029.1.057.147.085l.122.065c.05.026.1.051.151.075l.129.058.155.068.135.054.159.06.14.047.163.052.144.041.168.045.149.036.173.038.153.03.178.032.157.024.183.024.161.018.186.017.164.013.191.011.167.007h.357q.234,0,.474-.011h.1q.2-.011.41-.028l.122-.01c.166-.016.332-.034.5-.056l.095-.013q.218-.029.439-.067l.129-.022c.174-.03.348-.063.525-.1l.083-.018q.233-.05.469-.106l.139-.034c.181-.045.365-.092.548-.144l.063-.018q.251-.071.506-.15l.146-.045q.283-.09.57-.187l.033-.012c.183-.063.365-.129.55-.2l.152-.057q.285-.108.573-.223l.017-.006c.2-.08.4-.164.6-.25l.155-.067.551-.244.058-.027q.3-.14.609-.289l.156-.077q.269-.133.539-.272l.086-.044q.306-.158.609-.326l.156-.085q.265-.145.532-.3l.11-.062q.31-.178.621-.365l.152-.091q.264-.158.528-.324l.122-.079q.313-.2.627-.4l.145-.1q.264-.174.53-.353l.139-.094q.315-.214.631-.437l.136-.1q.265-.189.531-.382l.15-.11.256-.19a.158.158,0,0,0-.1-.285C223.037,268.416,221.081,268.42,220.212,268.422Z"/><g transform="translate(60.514 6.55)"><path fill="#FFFFFF" transform="translate(-543.434 -208.342)" d="M543.585,230.549l1.657-2.516a.892.892,0,0,1,1.244-.252,14.049,14.049,0,0,0,7.7,2.644c2.535,0,4-1.073,4-2.779v-.1c0-2-2.731-2.678-5.753-3.608-3.8-1.073-8.044-2.633-8.044-7.558v-.1c0-4.87,4.047-7.85,9.166-7.85a17.8,17.8,0,0,1,8.708,2.458.9.9,0,0,1,.335,1.217l-1.48,2.653a.892.892,0,0,1-1.208.351,14.187,14.187,0,0,0-6.5-1.994c-2.291,0-3.608,1.072-3.608,2.585v.1c0,1.853,2.779,2.633,5.8,3.608,3.754,1.17,8,2.877,8,7.509v.1c0,5.411-4.193,8.093-9.556,8.093a18.073,18.073,0,0,1-10.237-3.339.891.891,0,0,1-.221-1.221Z"/><path fill="#FFFFFF" transform="translate(-672.94 -207.826)" d="M697.688,221.381v-.1a13.729,13.729,0,0,1,27.448-.1v.1a13.459,13.459,0,0,1-13.8,13.411,13.314,13.314,0,0,1-13.649-13.313Zm21.548,0v-.1a7.957,7.957,0,0,0-7.9-8.288c-4.73,0-7.752,3.706-7.752,8.191v.1a7.977,7.977,0,0,0,7.85,8.288c4.781,0,7.8-3.754,7.8-8.191Z"/><path fill="#FFFFFF" transform="translate(-847.985 -207.83)" d="M907.073,208.367h4.109a.9.9,0,0,1,.895.895v3.1a9.264,9.264,0,0,1,8.044-4.535c5.8,0,9.166,3.9,9.166,9.9v15.486a.9.9,0,0,1-.895.895h-4.109a.9.9,0,0,1-.895-.895V219.481c0-4-2-6.289-5.51-6.289-3.409,0-5.8,2.389-5.8,6.386v13.635a.9.9,0,0,1-.895.895h-4.109a.9.9,0,0,1-.895-.895V209.262a.9.9,0,0,1,.895-.895Z"/><path fill="#FFFFFF" transform="translate(-998.79 -207.831)" d="M1085.8,221.336v-.749a12.7,12.7,0,0,1,12.738-12.756c8.086.083,12.174,6.483,12.174,13.845,0,.274-.012.548-.031.828a.894.894,0,0,1-.893.83h-18.09a7.183,7.183,0,0,0,7.412,6.534,9.049,9.049,0,0,0,6.4-2.535.892.892,0,0,1,1.185,0l2.184,1.938a.9.9,0,0,1,.055,1.288,13,13,0,0,1-9.917,4.133,12.844,12.844,0,0,1-13.211-13.357Zm19.063-1.9c-.391-3.8-2.633-6.777-6.534-6.777-3.608,0-6.143,2.779-6.68,6.777Z"/><path fill="#FFFFFF" transform="translate(-1160.307 -207.83)" d="M1279.069,208.367h4.109a.9.9,0,0,1,.9.895v3.4a10.282,10.282,0,0,1,8.727-4.827c6.094,0,11.994,4.827,11.994,13.358v.1c0,8.533-5.851,13.358-11.994,13.358a10.49,10.49,0,0,1-8.727-4.535V240.4a.9.9,0,0,1-.9.895h-4.109a.895.895,0,0,1-.9-.895V209.262a.894.894,0,0,1,.9-.895Zm19.728,12.92v-.1c0-4.973-3.364-8.239-7.362-8.239s-7.509,3.315-7.509,8.239v.1c0,4.973,3.511,8.239,7.509,8.239,4.047,0,7.363-3.169,7.363-8.239Z"/><path fill="#FFFFFF" transform="translate(-1322.082 -208.597)" d="M1488.363,233.981v-2.274a10.4,10.4,0,0,1-8.337,3.706c-4.87,0-9.166-2.779-9.166-7.947v-.1c0-5.7,4.438-8.434,10.434-8.434a21.67,21.67,0,0,1,7.118,1.072v-.487c0-3.56-2.243-5.51-6.338-5.51a17.183,17.183,0,0,0-6.5,1.264.893.893,0,0,1-1.165-.548l-1.04-3.056a.9.9,0,0,1,.5-1.113,21.744,21.744,0,0,1,9.038-1.814c7.606,0,11.311,4,11.311,10.873v14.365a.9.9,0,0,1-.895.895h-4.06a.9.9,0,0,1-.9-.895Zm.146-9.88a16.852,16.852,0,0,0-5.9-1.024c-3.706,0-5.9,1.512-5.9,4v.1c0,2.435,2.191,3.8,4.973,3.8,3.9,0,6.826-2.191,6.826-5.411Z"/><path fill="#FFFFFF" transform="translate(-1481.049 -208.08)" d="M1661.095,208.617h4.109a.895.895,0,0,1,.9.895v4.911c1.5-3.583,4.174-6.111,8.191-6.289a.894.894,0,0,1,.927.9v4.48a.9.9,0,0,1-.838.892c-5.075.326-8.278,3.686-8.278,10.163v8.905a.895.895,0,0,1-.9.895H1661.1a.9.9,0,0,1-.895-.895V209.512a.9.9,0,0,1,.894-.895Z"/></g></symbol></svg>
 
-<!-- ======================= HERO ======================= -->
+<!-- ===== PANEL 1: the invite + the three experiences ===== -->
 <header class="hero">
   <div class="hero__media" aria-hidden="true">
-    <!-- Photo fallback: plays as a slow drone-style push-in until the CineMapic clip is added -->
     <div class="slide" data-img="aerial"></div>
     <div class="slide" data-img="table"></div>
     <div class="slide" data-img="pool"></div>
-    <!-- Drone flyover: drop deck-flyover.mp4 (or .webm) next to this file and it takes over automatically -->
-    <video id="flyover" muted autoplay loop playsinline preload="auto" hidden>
-      <source src="deck-flyover.mp4" type="video/mp4">
-      <source src="deck-flyover.webm" type="video/webm">
-    </video>
   </div>
   <div class="hero__grade"></div>
 
-  <div class="hero__top wrap">
-    <svg class="logo" style="width:150px" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
+  <div class="top wrap">
+    <svg class="logo" style="width:clamp(170px,16vw,230px)" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
     <div class="tag">Data Center Solutions · PTC'27</div>
   </div>
 
@@ -229,72 +173,51 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
     <div class="eyebrow">A private evening · Honolulu</div>
     <p class="greet" id="greet">You're invited.</p>
     <h1>An evening on <em>the Deck.</em></h1>
-    <p class="hero__sub">Fifty seats. The entire rooftop. Diamond Head at dusk.</p>
-    <div class="hero__meta">
+    <div class="lede"><span class="pill">Invite only · Limited availability</span><span>The entire rooftop. Diamond Head at dusk.</span></div>
+    <div class="meta-row">
       <a class="btn" href="#rsvp">Reserve your seat <span aria-hidden="true">→</span></a>
       <div class="meta"><b>When</b>Tue · Jan 19, 2027 · 6–9 PM</div>
-      <div class="meta"><b>Where</b>DECK. · Waikīkī</div>
+      <div class="meta"><b>Where</b>DECK. at the Queen Kapiʻolani · Waikīkī</div>
     </div>
+
+    <!-- Clips play on hover (desktop) or when scrolled into view (phones) -->
+    <div class="reels">
+      <article class="reel" style="--tint-a:rgba(247,194,27,.22)">
+        <div class="reel__media" data-fallback="table"><video muted loop playsinline preload="metadata" data-src="sushi"></video></div>
+        <span class="reel__hint">▶ Hover</span>
+        <div class="reel__body"><h3>Hand-rolled sushi</h3></div>
+      </article>
+      <article class="reel reel--feature" style="--tint-a:rgba(0,158,227,.25)">
+        <div class="reel__media" data-fallback="sun"><video muted loop playsinline preload="metadata" data-src="maui-jim"></video></div>
+        <div class="reel__mj"><svg role="img" aria-label="Maui Jim" viewBox="0 0 1608 813" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_2676_11723)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1016.57 1.61486C1026.29 -0.682322 1036.44 -0.525999 1046.08 2.06686C1100.56 19.8783 1099.01 94.0875 1099.75 141.282C1114.68 138.833 1138.25 126.365 1145.57 146.176C1140.1 167.62 1111.79 158.866 1098.86 172.813L1081.26 278.487C1112.97 253.182 1138.04 216.226 1159.62 181.868C1166.13 171.553 1173 154.187 1179.13 145.802C1186.38 135.937 1200.94 138.386 1201.01 151C1185.12 185.728 1165.24 220.01 1158.88 258.077C1162.58 255.776 1166.13 252.067 1169.08 248.803C1194.21 221.198 1217.42 186.171 1243.81 160.57C1251.94 152.705 1264.87 139.646 1276.63 144.392C1294.81 151.812 1276.63 179.718 1276.18 193.075C1289.12 177.64 1301.1 159.314 1314.99 144.844C1354.02 104.105 1361.11 137.195 1343.67 174.52C1357.57 161.383 1385.51 108.334 1409.31 129.928C1421.06 140.612 1405.69 154.263 1400.59 165.838C1397.86 171.997 1375.83 243.384 1383.37 243.161C1422.17 216.3 1464.67 195.521 1508.13 177.341C1520.63 172.146 1589.67 144.175 1597.28 145.14C1599.87 145.437 1602.82 148.622 1606 148.475V159.604C1602.6 163.462 1601.05 166.733 1595.95 169.033C1583.6 174.598 1560.99 177.712 1546.5 182.461C1508.73 194.853 1471.69 211.921 1437.99 233.069C1423.72 242.047 1385.89 274.1 1373.61 276.11C1363.56 277.743 1359.2 274.625 1358.24 264.607C1355.43 235.816 1367.84 202.495 1373.09 174.52C1345.07 203.089 1325.71 239.379 1303.54 272.549L1294.52 270.99C1293.11 268.986 1292.22 266.76 1291.85 264.311C1289.2 245.166 1317.06 199.906 1319.5 178.237C1298.81 198.718 1280.47 223.424 1263.69 247.393C1258.96 254.144 1239.16 287.895 1235.09 289.171C1225.33 292.139 1219.34 285.238 1219.78 275.814C1228.95 251.252 1244.25 227.136 1249.05 201.164C1249.42 199.012 1251.94 189.51 1248.39 189.436C1208.92 221.641 1178.91 263.497 1147.71 303.495C1122.96 309.872 1135.89 271.735 1133.82 258.007C1115.04 276.409 1096.2 295.407 1072.92 308.171L1049.78 384.161C1120.22 370.73 1190.81 357.076 1261.69 345.499C1332.58 333.923 1414.26 317.071 1481.3 313.657C1489.8 313.212 1507.91 312.919 1509.62 324.271C1511.54 336.959 1488.26 342.974 1478.94 344.681C1451.82 349.801 1420.69 350.837 1392.83 354.695C1274.56 371.095 1156.29 389.201 1039.5 413.689C994.336 525.147 944.592 641.505 874.668 739.829C855.597 766.691 834.01 795.931 804 810.847C800.746 812.464 786.83 812.878 783.676 810.847C766.971 800.087 758.394 783.614 752.776 764.914C729.418 687.071 761.502 582.513 794.469 510.977C802.674 493.168 812.869 476.394 820.63 458.437C626.082 504.816 431.753 555.052 243.117 621.616C165.209 649.146 87.3048 678.91 15.0144 719.13L2 718.164V710.745C78.2818 656.5 171.269 622.58 259.304 591.488C447.94 524.924 642.641 475.876 837.191 429.571L874.223 369.393C842.439 392.841 783.013 393.58 778.135 344.307C768.748 249.547 837.781 148.035 900.018 82.7329C932.098 49.118 969.205 15.128 1014.66 2.06686L1016.57 1.61486ZM858.185 450.644C856.337 451.237 855.374 452.725 854.265 454.135C847.761 462.149 833.789 491.383 828.392 502.366C793.43 573.011 759.575 674.678 779.164 753.56C782.564 767.214 786.929 786.212 803.93 778.42C824.848 768.772 867.124 702.806 880.653 681.061C931.508 599.656 973.712 509.566 1007.34 419.627V419.557L858.185 450.644ZM1068.33 193.301C990.302 255.763 926.959 336.608 874.34 421.396L1019.4 389.943C1041.28 325.979 1060.13 260.604 1068.33 193.301ZM1029.16 28.5555C969.507 32.8594 882.286 139.792 852.052 188.547C829.656 224.611 807.036 273.735 804.078 316.626C802.6 338.443 802.231 359.892 829.063 362.044C879.03 366.048 936.983 282.645 967.584 248.881C988.724 225.506 1011.79 202.275 1036.03 182.165C1041.14 177.932 1068.02 159.837 1069.21 157.975C1073.35 150.999 1072.91 101.205 1072.1 90.222C1070.32 64.5475 1062.27 26.1843 1029.16 28.5555Z" fill="#FFFFFF"/>
+<path d="M432.91 60.9513C442.889 58.5025 452.864 59.4694 453.086 71.7135C453.304 83.9616 425.144 133.007 418.048 148.07C363.276 265.316 314.345 384.641 301.41 515.17C300.079 528.898 306.066 563.849 279.979 553.317C260.908 545.6 268.004 515.615 270.222 498.696C274.435 465.897 283.89 429.239 293.055 397.331C320.478 301.902 363.72 212.407 401.122 120.911H401.2C399.056 118.908 386.561 132.564 384.491 134.791C304.219 219.459 258.092 280.459 216.847 391.323C212.117 404.164 206.573 441.039 188.613 435.548C170.652 430.057 184.922 397.92 189.135 385.751C205.322 339.003 230.522 293.367 248.705 247.065C263.34 209.74 275.614 171.595 282.932 132.118L259.795 154.304C179.151 259.826 103.384 387.243 59.2557 513.245C53.7875 528.754 54.3786 552.791 35.5336 553.98C10.9931 555.538 20.1533 528.823 24.6622 515.614C49.1289 442.892 99.4713 355.404 138.425 288.47C172.353 230.218 212.782 162.985 256.023 111.559C264.745 101.17 297.052 63.6234 311.096 67.3338C325.951 76.6101 320.109 95.5348 317.448 110.079C312.643 135.975 303.262 162.317 297.201 188.064C296.758 189.993 294.318 193.785 296.757 195.047C310.949 178.424 324.551 161.13 339.261 144.953C357.003 125.36 410.218 66.5166 432.91 60.9513Z" fill="#FFFFFF"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M400.911 282.641C416.951 259.563 435.579 237.002 466.771 241.454C483.328 243.829 480.372 256.376 484.438 258.973C488.504 261.569 499.076 257.265 501.146 268.247C503.214 279.23 484.732 299.639 478.671 310.548C461.375 341.417 448.294 378.001 436.838 411.468L438.31 414.803C451.468 423.263 477.787 380.446 483.479 371.022C503.805 337.629 517.701 300.597 536.254 266.314C543.424 255.113 561.159 262.161 557.614 274.699C554.066 287.24 537.362 310.77 530.931 324.053C525.016 336.375 502.03 386.163 508.83 396.848L508.682 396.996C520.878 403.007 530.633 389.497 536.916 380.444C561.234 345.27 575.134 299.638 592.06 260.532C598.638 254.224 614.825 262.235 613.717 271.956C607.286 286.204 567.002 373.624 574.985 382.454C589.029 377.112 602.037 359.225 610.537 346.684C625.689 324.275 637.371 289.103 652.596 270.179C657.77 263.798 664.867 257.34 671.962 265.574C680.684 275.74 667.456 294.219 663.686 305.35C657.699 322.862 640.182 382.304 652.526 396.404C664.87 410.497 683.72 363.9 692.442 376.734C699.908 387.717 679.872 417.844 667.38 422.222C629.98 435.504 621.477 393.808 622.141 365.684C609.794 380.975 569.887 432.609 547.935 411.39C545.496 409.089 544.158 401.525 540.906 402.786C528.265 417.48 501.292 442.777 483.627 421.186C480.892 417.847 482.293 412.502 477.12 413.837C463.963 434.466 423.606 470.681 402.244 441.666C398.622 441.666 371.416 491.756 352.345 491.83C342.59 491.828 337.266 482.033 335.27 473.649C324.334 428.603 374.302 320.931 400.911 282.641ZM460.56 298.375C465.29 286.873 477.414 256.376 454.208 260.454H454.278C413.625 267.578 365.288 400.401 369.646 437.286C371.124 449.605 377.851 440.552 382.582 435.283C404.093 411.385 447.846 329.541 460.56 298.375Z" fill="#FFFFFF"/>
+<path d="M678.991 195.693C689.488 185.453 707.823 189.538 710.927 204.305C714.4 221.001 685.201 248.826 671.97 230.349C665.837 221.741 672.118 202.525 678.991 195.771V195.693Z" fill="#FFFFFF"/>
+<path d="M1217.55 60.0083C1228.72 57.8577 1240.54 68.1725 1238.99 79.7481C1237.88 88.2822 1226.79 103.348 1218.51 105.574C1186.88 113.958 1195.23 64.238 1217.55 60.0083Z" fill="#FFFFFF"/>
+</g>
+<defs>
+<clipPath id="clip0_2676_11723">
+<rect width="1608" height="812.219" fill="white"/>
+</clipPath>
+</defs>
+</svg></div>
+        <span class="reel__hint">▶ Hover</span>
+        <div class="reel__body"><h3>A custom Maui Jim<br>experience</h3></div>
+      </article>
+      <article class="reel" style="--tint-a:rgba(255,122,61,.25)">
+        <div class="reel__media" data-fallback="pool"><video muted loop playsinline preload="metadata" data-src="fire"></video></div>
+        <span class="reel__hint">▶ Hover</span>
+        <div class="reel__body"><h3>Fire fan dancers on the Deck</h3></div>
+      </article>
+    </div>
+    <div class="extras"><span>A forever lei to take home</span><i></i><span>And a few surprises we're keeping quiet</span></div>
   </div>
-  <div class="scrollcue" aria-hidden="true"></div>
 </header>
 
-<!-- ======================= THE NOTE ======================= -->
+<!-- ===== PANEL 2: the place ===== -->
 <section>
-  <div class="wrap note">
-    <div class="note__text rv">
-      <div class="kicker">The invitation</div>
-      <p>During PTC'27, Sonepar is taking over DECK. at the Queen Kapiʻolani Hotel, the whole rooftop, for one evening and fifty guests.</p>
-      <p>The leaders building the infrastructure behind what comes next, the best view in Waikīkī, and nothing on the agenda but a good night. We'd be honored to have you there.</p>
-      <div class="sign"><strong>Sonepar</strong> · Data Center Solutions</div>
-    </div>
-    <div class="note__img rv">
-      <img data-img="tower" alt="DECK. at the Queen Kapiʻolani Hotel at dusk, lit rooftop with palms">
-      <div class="stat"><span>50</span><small>Guests · by invitation</small></div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= PHOTO BREAK ======================= -->
-<div class="bleed" aria-hidden="false">
-  <img id="parallax" data-img="table" alt="A long table under string lights on the rooftop at blue hour">
-  <div class="bleed__cap wrap"><p>A table, set for fifty,<br>under the string lights.</p></div>
-</div>
-
-<!-- ======================= THE EVENING ======================= -->
-<section>
-  <div class="wrap">
-    <div class="evening__head rv">
-      <div>
-        <div class="kicker">The evening</div>
-        <h2>Golden hour <em>into</em><br>firelight.</h2>
-      </div>
-      <p>Three hours on the rooftop, from the last light on Diamond Head to the fire after dark.</p>
-    </div>
-    <div class="reels">
-      <!-- Each card plays its clip if the file exists (sushi.mp4, maui-jim.mp4, fire.mp4); otherwise it shows the photo/gradient fallback -->
-      <article class="reel rv" style="--tint:var(--gold)">
-        <div class="reel__media" data-fallback="table"><video muted loop playsinline preload="metadata" data-src="sushi"></video></div>
-        <div class="reel__body"><div class="moment__n">01</div><h3>Hand-rolled sushi</h3><p>Rolled by hand, from the first light to the last.</p></div>
-      </article>
-      <article class="reel rv" style="--tint:var(--sky)">
-        <div class="reel__media" data-fallback="sun"><video muted loop playsinline preload="metadata" data-src="maui-jim"></video></div>
-        <div class="reel__body"><div class="moment__n">02</div><h3>A custom Maui Jim experience</h3><p>Pick your pair from surfboard shelves, glowing on the Deck.</p></div>
-      </article>
-      <article class="reel rv" style="--tint:#FF7A3D">
-        <div class="reel__media" data-fallback="pool"><video muted loop playsinline preload="metadata" data-src="fire"></video></div>
-        <div class="reel__body"><div class="moment__n">03</div><h3>Fire fan dancers on the Deck</h3><p>When the sun goes down, the rooftop lights up.</p></div>
-      </article>
-    </div>
-    <script>document.querySelectorAll('.reel').forEach(r=>{const h=document.createElement('span');h.className='reel__hint';h.textContent='▶ Hover';r.appendChild(h);});</script>
-    <div class="extras rv">
-      <span>Fresh lei to take home</span><i></i><span>And a few surprises we're keeping quiet</span>
-    </div>
-  </div>
-</section>
-
-<!-- ======================= THE PLACE ======================= -->
-<section style="padding-top:0">
   <div class="wrap">
     <div class="rv">
       <div class="kicker">The place</div>
@@ -305,7 +228,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
       <figure class="g2 rv"><img data-img="sun" alt="Sun setting beside Diamond Head above the pool deck"><figcaption>Over Diamond Head</figcaption></figure>
       <figure class="g3 rv"><img data-img="pool" alt="Rooftop pool glowing at night under string lights"><figcaption>The pool deck</figcaption></figure>
     </div>
-    <div class="place__facts rv">
+    <div class="facts rv">
       <div class="fact"><b>Venue</b><span>DECK. · Queen Kapiʻolani Hotel</span></div>
       <div class="fact"><b>Setting</b><span>Open-air rooftop, facing Diamond Head</span></div>
       <div class="fact"><b>Steps from</b><span>Waikīkī Beach</span></div>
@@ -313,7 +236,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
   </div>
 </section>
 
-<!-- ======================= DETAILS + RSVP ======================= -->
+<!-- ===== PANEL 3: details + RSVP ===== -->
 <section class="rsvp" id="rsvp">
   <div class="wrap rsvp__grid">
     <div class="rv">
@@ -328,7 +251,6 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
         </div>
       </div>
     </div>
-
     <div class="rv">
       <div class="kicker">RSVP</div>
       <form id="rsvpForm" novalidate>
@@ -346,7 +268,7 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
         <div class="field field--full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
         <div class="field field--full"><label for="notes">Dietary needs or a note for us</label><textarea id="notes" name="notes"></textarea></div>
         <div class="form__foot">
-          <small>Seating is limited to fifty. This invitation is personal to you.</small>
+          <small>This invitation is personal to you.</small>
           <button class="btn" type="submit">Confirm my seat</button>
         </div>
       </form>
@@ -360,24 +282,19 @@ footer{padding:50px 0 60px;border-top:1px solid var(--line)}
 
 <footer>
   <div class="wrap foot">
-    <svg class="logo" style="width:120px" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
-    <small>Photography: DECK. at Queen Kapiʻolani Hotel · Video: Pexels (Ivan S, Advancer Drones)</small>
+    <svg class="logo" style="width:130px" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
+    <small>In partnership with Maui Jim · Photography: DECK. at Queen Kapiʻolani Hotel · Video: Pexels (Ivan S, Advancer Drones)</small>
   </div>
 </footer>
 
 <script>
-/* =========================================================
-   SETTINGS — the only things marketing needs to touch
-   ========================================================= */
-const RSVP_ENDPOINT = "";            // e.g. a Power Automate / Microsoft Forms / HubSpot form URL. Blank = email fallback.
-const RSVP_EMAIL    = "rsvp@example.com"; // where RSVPs go when no endpoint is set — REPLACE before sending
+/* SETTINGS: RSVP destination is phase 2. Until then the form opens an email to RSVP_EMAIL. */
+const RSVP_ENDPOINT = "";
+const RSVP_EMAIL    = "rsvp@example.com"; // REPLACE before sending
 
-/* Photography (DECK.'s own photos from their Google listing — confirm usage with the venue
-   and swap in their full-resolution originals before this goes out) */
 const LH = "https://lh3.googleusercontent.com/gps-cs/";
 const IMG = {
   aerial: LH+"AAjk-CMSmM7UqWB3-IDHmndQuGUVgWzyGVU8Y2XS_rVvnVSXreGAYV7tKl_DKTE7FLt2RWyMdhQfs6OmnPFGIk4DdyOa-kW6IdcXN-crnGszALmXd3Sj7vZ-P9-qw9ynqY2XgcqYsNLBBpVSy0Q=w1080-h808-k-no",
-  tower:  LH+"AAjk-CMwNueoGmzUYZc0wvLTdTWJ2R4bK4qq8ZDMSbp8dcho-HzVW6f9HnzTLOweZEDEeugBkE1ktoRPHbOkYQpPmm7vtvt7uIbgISLUYV8_ChWsD03hNkBiUul_K8-Sv5UIx0wEqgA6g7wD_1w=w1080-h1350-k-no",
   sun:    LH+"AAjk-CPNWADHaa-O3vUHBi_s2T13HtRzWxPjGt64pDZn3J8-mBZGnCsCQ_n6T30edb_OiODY4nO1xjsjpuzZ6sBUDmCQO2NbXksZHjH59GaEQccdCemOgtaHRrjmgEU69Tmo1njBMFJIHpvEYVGq=w720-h720-k-no",
   table:  LH+"AAjk-CMcL_97s8_n1SI0EDI2a5ijcZ9IH6UX1bRHpFrlTtCGb5rH99h3v3GFbtJBe8ZKC57KIriA8zgOb-L4qxT7fa7PmjzH1IGwLBh_LPH0dg4j4cMF2iHsoaQjY5jphflZabV10lH8q-nddwzE=w2400-h1600-k-no",
   pool:   LH+"AAjk-CMNU8fiZIxUZW_DILZw1fKkOfHNyZEqOSYosvhtX1Ibt13unQBNQtCGzCMA8QWiKq1-fhQMRYLFyOgxpO7pnsKblrlL1gefnwPtb6zoI9eU6FPfbc-NWEl1P2ZNYQABrTexO1tPwpQiy4ir=w2400-h1600-k-no"
@@ -385,84 +302,64 @@ const IMG = {
 document.querySelectorAll('[data-img]').forEach(el=>{
   const src = IMG[el.dataset.img]; if(!src) return;
   if(el.tagName==='IMG'){ el.src = src; el.loading = 'lazy'; }
-  else el.style.backgroundImage = `url("${src}")`;
+  else el.style.backgroundImage = 'url("'+src+'")';
 });
 
-/* Experience reels — clip per card.
-   sushi: Pexels, "Close-up of a chef preparing sushi" by Ivan S (free license)
-   fire:  Pexels, "Hawaiian fire dancer on a beach" by Advancer Drones (free license)
-   maui-jim: AI-generated (vidIQ / Veo 3.1 Fast, 4s, 720x1280) — surfboard-shelf display at dusk
-   Swap any of these for local files (e.g. "sushi.mp4") before sending. */
+/* Experience clips */
 const REEL = {
   'sushi':    "https://videos.pexels.com/video-files/8908335/8908335-hd_1080_1920_25fps.mp4",
   'maui-jim': "https://videogen.vidiq.com/71afd374-f18e-48c8-ab99-b1598199cc16/e1f57a2b-8065-4c1c-a8d3-50edbae9da86_118787cb-2422-4a2a-94a1-326882893e9c_876f5ed0-f213-4254-a70a-3ac991fe294b.mp4",
   'fire':     "https://videos.pexels.com/video-files/12815783/12815783-hd_1280_720_24fps.mp4"
 };
-const canHover = matchMedia('(hover: hover)').matches;
+const canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
 document.querySelectorAll('.reel').forEach(card=>{
   const m = card.querySelector('.reel__media');
-  const src = IMG[m.dataset.fallback]; if(src) m.style.backgroundImage = `url("${src}")`;
+  const src = IMG[m.dataset.fallback]; if(src) m.style.backgroundImage = 'url("'+src+'")';
   const vid = m.querySelector('video'); const url = REEL[vid.dataset.src];
-  if(!url) return;                       // no clip yet → photo stays
-  vid.src = url; vid.playbackRate = .85;
-  const on  = ()=>{ vid.classList.add('on'); vid.play().catch(()=>{}); };
+  if(!url) return;
+  vid.src = url;
+  const on  = ()=>{ vid.classList.add('on'); const p=vid.play(); if(p&&p.catch) p.catch(()=>{}); };
   const off = ()=>{ vid.classList.remove('on'); vid.pause(); };
-  if(canHover){                          // desktop: plays as you roll over it
+  if(canHover){
     card.addEventListener('mouseenter',on); card.addEventListener('mouseleave',off);
-    card.addEventListener('focusin',on);    card.addEventListener('focusout',off);
-  } else {                               // phones: plays when the card scrolls into view
-    new IntersectionObserver(([e])=> e.isIntersecting ? on() : off(),{threshold:.55}).observe(card);
+  } else if('IntersectionObserver' in window){
+    new IntersectionObserver(es=>es.forEach(e=> e.isIntersecting ? on() : off()),{threshold:.6}).observe(card);
   }
 });
 
-/* Personal greeting: send each guest a link ending in ?to=FirstName */
+/* Personal greeting: each guest's link ends in ?to=FirstName */
 const to = new URLSearchParams(location.search).get('to');
 if(to){
   const name = to.replace(/[<>]/g,'').slice(0,40);
-  document.getElementById('greet').textContent = `${name}, you're invited.`;
+  document.getElementById('greet').textContent = name + ", you're invited.";
   document.getElementById('first').value = name;
 }
 
-/* Drone flyover takes over the hero once it can actually play */
-const v = document.getElementById('flyover');
-v.addEventListener('canplay',()=>{ v.hidden=false; document.querySelectorAll('.slide').forEach(s=>s.style.display='none'); },{once:true});
+/* Scroll reveals (content shows immediately if the browser can't do this) */
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+} else document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
 
-/* Scroll reveals */
-const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }),{threshold:.15});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
-/* Gentle parallax on the full-bleed photo */
-const px = document.getElementById('parallax');
-if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
-  addEventListener('scroll',()=>{
-    const r = px.parentElement.getBoundingClientRect();
-    if(r.bottom>0 && r.top<innerHeight) px.style.transform = `translateY(${(r.top/innerHeight)*-60}px)`;
-  },{passive:true});
-}
-
-/* Add to calendar (.ics) */
+/* Add to calendar */
 document.getElementById('ics').addEventListener('click',()=>{
-  const ics = [
-    'BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Sonepar//PTC27//EN','BEGIN:VEVENT',
-    'UID:sonepar-ptc27-deck@sonepar.com',
-    'DTSTAMP:20261022T000000Z',
-    'DTSTART:20270120T040000Z','DTEND:20270120T070000Z', // 6–9 PM HST (UTC−10)
-    'SUMMARY:Sonepar · An Evening on the Deck (PTC\'27)',
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Sonepar//PTC27//EN','BEGIN:VEVENT',
+    'UID:sonepar-ptc27-deck@sonepar.com','DTSTAMP:20261022T000000Z',
+    'DTSTART:20270120T040000Z','DTEND:20270120T070000Z',
+    "SUMMARY:Sonepar · An Evening on the Deck (PTC'27)",
     'LOCATION:DECK. at Queen Kapiolani Hotel\\, 150 Kapahulu Ave\\, Honolulu\\, HI 96815',
-    'DESCRIPTION:A private evening for fifty on the rooftop. Hosted by Sonepar.',
-    'END:VEVENT','END:VCALENDAR'
-  ].join('\r\n');
+    'DESCRIPTION:A private\\, invite-only evening on the rooftop. Hosted by Sonepar.',
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'}));
   a.download = 'Sonepar-Evening-on-the-Deck.ics';
-  a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  document.body.appendChild(a); a.click(); a.remove();
 });
 
 /* RSVP */
 document.getElementById('rsvpForm').addEventListener('submit', async e=>{
   e.preventDefault();
-  const f = e.target;
-  if(!f.reportValidity()) return;
+  const f = e.target; if(!f.reportValidity()) return;
   const data = Object.fromEntries(new FormData(f));
   const done = ()=>{ f.style.display='none'; const t=document.getElementById('thanks'); t.classList.add('show');
     if(data.attending==='no'){ t.querySelector('h3').textContent='We’ll miss you.'; t.querySelector('p').textContent='Thank you for letting us know. We hope to see you at PTC.'; } };
@@ -470,8 +367,8 @@ document.getElementById('rsvpForm').addEventListener('submit', async e=>{
     try{ await fetch(RSVP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}); done(); }
     catch(err){ alert('Something went wrong. Please try again.'); }
   } else {
-    const body = Object.entries(data).map(([k,v])=>`${k}: ${v}`).join('\n');
-    location.href = `mailto:${RSVP_EMAIL}?subject=${encodeURIComponent('RSVP · Evening on the Deck · '+data.first+' '+data.last)}&body=${encodeURIComponent(body)}`;
+    const body = Object.entries(data).map(([k,v])=>k+': '+v).join('\n');
+    location.href = 'mailto:'+RSVP_EMAIL+'?subject='+encodeURIComponent('RSVP · Evening on the Deck · '+data.first+' '+data.last)+'&body='+encodeURIComponent(body);
     done();
   }
 });
