@@ -112,7 +112,10 @@ h2 em{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--gol
 .host b{display:block;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);font-weight:700;margin-bottom:14px}
 .host .logo{width:clamp(220px,22vw,300px)}
 .host p{margin-top:10px;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim)}
-.host .tagline{margin-top:12px;font-size:clamp(15px,1.3vw,18px);letter-spacing:.04em;text-transform:none;font-weight:600;color:var(--ink)}
+.host .brandmark{display:inline-block}
+.host .tagline{margin-top:6px;text-align:right;font-size:clamp(15px,1.35vw,19px);letter-spacing:0;text-transform:none;font-weight:500;color:var(--sky)}
+.host .tagline i{font-style:italic;font-weight:500}
+.host .tagline strong{font-weight:800}
 .note .sign strong{color:var(--ink)}
 @media (max-width:1290px) and (min-width:901px){.note{left:18px;top:18px}}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:84px}
@@ -278,8 +281,10 @@ footer{padding:44px 0 56px;border-top:1px solid var(--line)}
       </div>
       <div class="host">
         <b>Hosted by</b>
-        <svg class="logo" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
-        <p class="tagline">Powered by Difference</p>
+        <div class="brandmark">
+          <svg class="logo" viewBox="0 0 254.681 40.012" role="img" aria-label="Sonepar"><use href="#sonepar-logo"/></svg>
+          <p class="tagline">Powered <i>by</i> <strong>Difference</strong></p>
+        </div>
       </div>
     </div>
     <div class="rv">
