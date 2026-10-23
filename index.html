@@ -340,16 +340,19 @@ document.querySelectorAll('[data-img]').forEach(el=>{
 const REEL = {
   'sushi':    "https://videos.pexels.com/video-files/8908335/8908335-hd_1080_1920_25fps.mp4",
   'maui-jim': "https://videogen.vidiq.com/71afd374-f18e-48c8-ab99-b1598199cc16/e1f57a2b-8065-4c1c-a8d3-50edbae9da86_118787cb-2422-4a2a-94a1-326882893e9c_876f5ed0-f213-4254-a70a-3ac991fe294b.mp4",
-  'fire':     "https://videos.pexels.com/video-files/12815783/12815783-hd_1280_720_24fps.mp4"
+  'fire':     "https://videogen.vidiq.com/71afd374-f18e-48c8-ab99-b1598199cc16/4afa700e-b862-433e-9a1b-4f44ffc6fb69_a4b7920f-5187-4112-91d3-3d3e5aa9dabd_0505d5e0-7bf1-45b7-80f1-2a204d1962b4.mp4"
 };
+/* Playback speed per clip (1 = normal). Fire is slowed for a dreamier feel. */
+const RATE = { 'fire': 0.55 };
 const canHover = window.matchMedia && matchMedia('(hover: hover)').matches;
 document.querySelectorAll('.reel').forEach(card=>{
   const m = card.querySelector('.reel__media');
   const src = IMG[m.dataset.fallback]; if(src) m.style.backgroundImage = 'url("'+src+'")';
   const vid = m.querySelector('video'); const url = REEL[vid.dataset.src];
   if(!url) return;
-  vid.src = url;
-  const on  = ()=>{ vid.classList.add('on'); const p=vid.play(); if(p&&p.catch) p.catch(()=>{}); };
+  vid.src = url; vid.muted = true; vid.defaultMuted = true;
+  const rate = RATE[vid.dataset.src] || 1;
+  const on  = ()=>{ vid.classList.add('on'); vid.playbackRate = rate; const p=vid.play(); if(p&&p.catch) p.catch(()=>{}); };
   const off = ()=>{ vid.classList.remove('on'); vid.pause(); };
   if(canHover){
     card.addEventListener('mouseenter',on); card.addEventListener('mouseleave',off);
